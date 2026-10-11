@@ -98,16 +98,20 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(title="ToiletCare API", lifespan=lifespan)
 
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:3000",
         "http://127.0.0.1:3000",
+        "https://toilet-care.vercel.app",
+        "https://toilet-care-qy2ht5kzd-khushi-04cb.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 
 @app.get("/")
